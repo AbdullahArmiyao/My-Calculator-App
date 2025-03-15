@@ -20,9 +20,14 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
         } catch (e) {
           result = "Error";
         }
-      } else if (buttonText == "C") {
+      } else if (buttonText == "AC") {
         expression = "";
         result = "0";
+      } else if (buttonText == "Clear") {
+         if (expression.isNotEmpty) {
+          expression = expression.substring(0, expression.length - 1);
+          result = expression.isNotEmpty ? expression : "0";
+        }
       } else {
         expression += buttonText;
         result = expression;
@@ -145,7 +150,15 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
               ),
               Row(
                 children: [
-                  calcButton("C", buttonPressed),
+                  calcButton("AC", buttonPressed),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  calcButton("Clear", buttonPressed),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  calcButton("%", buttonPressed)
                 ],
               )
             ],
@@ -153,16 +166,14 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
-        // backgroundColor: Colors.cyanAccent,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.calculate),
-            label: 'Calculator',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person), 
-            label: "Profile")
-        ]),
+          // backgroundColor: Colors.cyanAccent,
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.calculate),
+              label: 'Calculator',
+            ),
+            BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile")
+          ]),
     );
   }
 }
