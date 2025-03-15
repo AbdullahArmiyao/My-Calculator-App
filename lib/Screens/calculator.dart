@@ -26,7 +26,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
       } else if (buttonText == "Clear") {
          if (expression.isNotEmpty) {
           expression = expression.substring(0, expression.length - 1);
-          result = expression.isNotEmpty ? expression : "0";
+          result = expression.isNotEmpty ? expression : "0"; 
         }
       } else {
         expression += buttonText;
