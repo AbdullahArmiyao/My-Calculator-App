@@ -3,6 +3,7 @@ import 'package:expressions/expressions.dart';
 import 'package:calculator_app/Widgets/buttons.dart';
 
 class CalculatorScreen extends StatefulWidget {
+  const CalculatorScreen({super.key});
   @override
   _CalculatorScreenState createState() => _CalculatorScreenState();
 }
